@@ -118,7 +118,16 @@ namespace XO
         {
             for (int i = 0; i < 3; i++)
             {
-                Console.WriteLine("{0} | {1} | {2}",_Game_chars[i,0],_Game_chars[i,1],_Game_chars[i,2]);
+                for (int j = 0; j < 3; j++)
+                {
+                    if(_Game_chars[i,j]==' ')
+                    {
+                        Console.Write(i * 3 + j+1);
+                    
+                    }else Console.Write(_Game_chars[i,j]);
+                    Console.Write(" | ");
+                }
+                Console.WriteLine();
             }
         }
         private void Print_Whos_Turn()
@@ -176,7 +185,7 @@ namespace XO
                         Console.WriteLine("index Must be between 1 and 9");
                         ind = -1;
                     }
-                    if (!Write_in_ind(ind)&& ind !=-1)
+                    else if (!Write_in_ind(ind))
                     {
                         Console.WriteLine("index Must be of an empthy place");
                         ind = -1;
